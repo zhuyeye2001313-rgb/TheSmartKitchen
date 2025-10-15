@@ -9,55 +9,55 @@ import SwiftUI
 import Firebase
 import FirebaseAuth
 
+
+
 struct ContentView: View {
-    var body: some View {
-        singInForm()
-    }
-}
+    @State private var email = ""
+    @State private var password = ""
+    @State private var userIsLoggedIn = false
 
-struct singInForm: View {
-    
-    @State var username = ""
-    @State var password = ""
-    
-    private var isFormValid: Bool {
-        !username.trimmingCharacters(in: .whitespaces).isEmpty &&
-        !password.trimmingCharacters(in: .whitespaces).isEmpty
+    var body: some View {
+        if userIsLoggedIn {
+            TableView()
+        } else {
+            content
+        }
     }
     
-    var body: some View {
+    var content: some View {
         VStack {
-            Form {
-                TextField(text: $username) {
-                    Text("Username")
-                }
-                SecureField(text: $password) {
-                    Text("Password")
-                }
-                
-                Button("Submit") {
-                    register()
-                }
-                .disabled(!isFormValid)
-                .buttonStyle(.borderedProminent)
-                .buttonBorderShape(.capsule)
+            TextField("Email", text: $email)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .autocapitalization(.none)
                 .padding()
-                .frame(maxWidth: .infinity, alignment: .center)
+
+            SecureField("Password", text: $password)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding()
+
+            Button("Sign Up") {
+                register()
+            }
+            .padding()
+        }
+        .onAppear {
+            try? Auth.auth().signOut()
+            Auth.auth().addStateDidChangeListener { _, user in
+                userIsLoggedIn = (user != nil)
             }
         }
     }
-    
+
     func register() {
-        Auth.auth().createUser(withEmail: username, password: password) { result, error in
+        Auth.auth().createUser(withEmail: email, password: password) { result, error in
             if let error = error {
-                print(error.localizedDescription)
+                print("Error: \(error.localizedDescription)")
             } else {
-                print("User registered successfully!")
+                print("User registered successfully: \(result?.user.uid ?? "")")
             }
         }
     }
 }
-
 
 #Preview {
     ContentView()
