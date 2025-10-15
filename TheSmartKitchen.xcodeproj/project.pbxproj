@@ -6,6 +6,12 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		799590262E9F957F00DDC847 /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 799590252E9F957F00DDC847 /* FirebaseCore */; };
+		799590282E9F958600DDC847 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 799590272E9F958600DDC847 /* FirebaseFirestore */; };
+		7995902A2E9F958A00DDC847 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 799590292E9F958A00DDC847 /* FirebaseAuth */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		7995900B2E9F893F00DDC847 /* TheSmartKitchen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheSmartKitchen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -23,6 +29,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				799590262E9F957F00DDC847 /* FirebaseCore in Frameworks */,
+				7995902A2E9F958A00DDC847 /* FirebaseAuth in Frameworks */,
+				799590282E9F958600DDC847 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -33,6 +42,7 @@
 			isa = PBXGroup;
 			children = (
 				7995900D2E9F893F00DDC847 /* TheSmartKitchen */,
+				799590242E9F957F00DDC847 /* Frameworks */,
 				7995900C2E9F893F00DDC847 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,6 +53,13 @@
 				7995900B2E9F893F00DDC847 /* TheSmartKitchen.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		799590242E9F957F00DDC847 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -65,6 +82,9 @@
 			);
 			name = TheSmartKitchen;
 			packageProductDependencies = (
+				799590252E9F957F00DDC847 /* FirebaseCore */,
+				799590272E9F958600DDC847 /* FirebaseFirestore */,
+				799590292E9F958A00DDC847 /* FirebaseAuth */,
 			);
 			productName = TheSmartKitchen;
 			productReference = 7995900B2E9F893F00DDC847 /* TheSmartKitchen.app */;
@@ -94,6 +114,9 @@
 			);
 			mainGroup = 799590022E9F893F00DDC847;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				799590192E9F8F5400DDC847 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 7995900C2E9F893F00DDC847 /* Products */;
 			projectDirPath = "";
@@ -332,6 +355,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		799590192E9F8F5400DDC847 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.4.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		799590252E9F957F00DDC847 /* FirebaseCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 799590192E9F8F5400DDC847 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCore;
+		};
+		799590272E9F958600DDC847 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 799590192E9F8F5400DDC847 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		799590292E9F958A00DDC847 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 799590192E9F8F5400DDC847 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 799590032E9F893F00DDC847 /* Project object */;
 }
