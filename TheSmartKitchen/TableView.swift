@@ -28,8 +28,7 @@ struct Onboarding: View {
             .tag(0)
             
             ZStack {
-                Color.teal
-                Text("New Post").foregroundStyle(Color.white)
+                RecipeView()
             }
             .tabItem {
                 Label("New Post", systemImage: "plus")
@@ -46,14 +45,7 @@ struct Onboarding: View {
             .tag(2)
             
             ZStack {
-                Color.orange
-                VStack{
-                    Text("Edit Posts")
-                    
-                    Button("Go Home"){
-                        activeTab = 0
-                    }
-                }
+                UserView()
             }
             .tabItem {
                 Label("Edit", systemImage: "pencil")
